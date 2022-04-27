@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  background-image: url("./docs/imgs/tom-1651060544658-2798.jpg");
+  background-image: url("./docs/assets/imgs/tom-1651060544658-2798.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 350px;
@@ -8,19 +8,13 @@ body {
   background-position: right;
 }
 
-.typing-animation{
-border-right: 2px solid rgba(255, 255, 255, .75)
-font-family: "Courier New", Courier, monospace;
-font-size: 1.5em;
-color: rgba(255, 255, 255, .75);
-position: right;
- 
+.toca {
+  border-radius: 50%;
+  position: right;
 }
 
-
-
 #start-button {
-  background-image: url("/docs/imgs/pngtree-brown-realistic-start-button-png-image_2256288-removebg-preview.png");
+  background-image: url("/docs/assets/imgs/pngtree-brown-realistic-start-button-png-image_2256288-removebg-preview.png");
   background-size: contain;
   height: 30px;
   width: 80px;
@@ -35,11 +29,20 @@ position: right;
   width: 1000px;
   height: 450px;
   background-color: #390000;
-  background-image: url("./docs/imgs/Tom-Jerry-1.png");
+  background-image: url("./docs/assets/imgs/Tom-Jerry-1.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+#toca {
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 1000px;
+  padding-bottom: 10px;
 }

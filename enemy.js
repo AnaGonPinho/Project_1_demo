@@ -26,7 +26,7 @@ class Enemy {
 
   draw() {
     this.img.src =
-      "./docs/imgs/kisspng-tom-cat-jerry-mouse-tom-and-jerry-cartoon-animatio-tom-jerry-5acce98868e5c4.6021030715233785684297.png";
+      "./docs/assets/imgs/kisspng-tom-cat-jerry-mouse-tom-and-jerry-cartoon-animatio-tom-jerry-5acce98868e5c4.6021030715233785684297.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }

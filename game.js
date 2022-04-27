@@ -90,7 +90,7 @@ class Game {
   }
 
   drawBackground() {
-    this.background.src = "./docs/imgs/D-spabdXUAAJwht.jpg";
+    this.background.src = "./docs/assets/imgs/D-spabdXUAAJwht.jpg";
     this.ctx.drawImage(
       this.background,
       this.x,

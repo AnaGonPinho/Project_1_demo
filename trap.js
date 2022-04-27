@@ -25,7 +25,7 @@ class Trap {
   }
 
   draw() {
-    this.img.src = "./docs/imgs/trap.png";
+    this.img.src = "./docs/assets/imgs/trap.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
