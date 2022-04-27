@@ -1,3 +1,45 @@
-head {
-  background-image: url(/docs/imgs/background.jpg);
+body {
+  background-color: black;
+  background-image: url("./docs/imgs/tom-1651060544658-2798.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 350px;
+  background-position: right;
+}
+
+.typing-animation{
+border-right: 2px solid rgba(255, 255, 255, .75)
+font-family: "Courier New", Courier, monospace;
+font-size: 1.5em;
+color: rgba(255, 255, 255, .75);
+position: right;
+ 
+}
+
+
+
+#start-button {
+  background-image: url("/docs/imgs/pngtree-brown-realistic-start-button-png-image_2256288-removebg-preview.png");
+  background-size: contain;
+  height: 30px;
+  width: 80px;
+  background-repeat: no-repeat;
+  border-radius: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#start-screen {
+  width: 1000px;
+  height: 450px;
+  background-color: #390000;
+  background-image: url("./docs/imgs/Tom-Jerry-1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

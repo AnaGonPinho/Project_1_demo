@@ -14,7 +14,7 @@ class Game {
     this.points = [];
     this.score = 0;
     this.trap = [];
-    this.life = 0;
+    this.life = 3;
     this.count = null;
     this.enemySpeed = 2;
     this.trapSpeed = 2;
@@ -36,18 +36,18 @@ class Game {
     //count--;
     if (count < 60 && count >= 40) {
       this.enemySpeed = 2;
-      this.trapSpeed = 2;
+      this.trapSpeed = 1;
     } else if (count < 40 && count >= 20) {
-      this.enemySpeed = 3;
-      this.trapSpeed = 3;
+      this.enemySpeed = 2;
+      this.trapSpeed = 2;
     } else {
       this.enemySpeed = 4;
-      this.trapSpeed = 4;
+      this.trapSpeed = 3;
     }
 
-    this.ctx.fillStyle = "black";
-    this.ctx.font = "20px Times New Roman";
-    this.ctx.fillText(`${count}`, 40, 70);
+    this.ctx.fillStyle = "white";
+    this.ctx.font = "40px Times New Roman";
+    this.ctx.fillText(`${count}`, 70, 70);
   }
 
   update() {
@@ -75,15 +75,16 @@ class Game {
     this.enemies.forEach((enemy) => {
       enemy.x -= enemy.speed;
       enemy.draw();
-      if (this.life === 3) {
+      if (this.life <= 0) {
         this.stop();
       }
     });
 
     this.checkGameOver3();
     this.checkPoints();
-    this.checkGameOver();
+    this.checkTomColision();
     this.drawScores();
+    this.checkGameOver();
 
     this.drawWin();
   }
@@ -100,15 +101,15 @@ class Game {
   }
 
   createEnemies() {
-    if (this.frames % 500 === 0) {
+    if (this.frames % 300 === 0) {
       this.enemies.push(new Enemy(this, this.enemySpeed));
     }
   }
 
   drawScores() {
-    this.ctx.font = "32px serif";
-    this.ctx.fillStyle = "black";
-    this.ctx.fillText(`Score: ${this.score}`, 800, 100);
+    this.ctx.font = "40px serif";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText(`Score: ${this.score}`, 800, 70);
   }
 
   createPoints() {
@@ -119,7 +120,7 @@ class Game {
   }
 
   createTrap() {
-    if (this.frames % 100 === 0) {
+    if (this.frames % 200 === 0) {
       this.trap.push(new Trap(this, this.trapSpeed));
     }
   }
@@ -138,18 +139,26 @@ class Game {
       this.points.splice(cheeseRemove, 1);
     }
   }
+
   /////colisao com o TOM
-  checkGameOver() {
+  checkTomColision() {
     const jerry = this.jerry;
-    const crashed = this.enemies.some(function (enemy) {
-      return jerry.crashWith(enemy);
+    this.enemies.forEach((enemy, index, arr) => {
+      if (jerry.crashWith(enemy)) {
+        arr.splice(index, 1);
+        this.life -= 1;
+      }
     });
-    if (crashed) {
-      this.life++;
+  }
+
+  checkGameOver() {
+    console.log(this.life);
+    if (this.life <= 0) {
+      this.stop();
       this.ctx.clearRect(0, 0, this.width, this.height);
       this.ctx.font = "32px serif";
-      this.ctx.fillStyle = "black";
-      this.ctx.fillText(`Game Over`, 400, 100);
+      this.ctx.fillStyle = "white";
+      this.ctx.fillText(`You got Caught!`, 400, 200);
     }
   }
 
@@ -163,12 +172,16 @@ class Game {
       this.stop();
       this.ctx.clearRect(0, 0, this.width, this.height);
       this.ctx.font = "32px serif";
-      this.ctx.fillStyle = "black";
-      this.ctx.fillText(`Game Over`, 400, 100);
+      this.ctx.fillStyle = "white";
+      this.ctx.fillText(`You got Caught!`, 400, 200);
     }
   }
 
   stop() {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.ctx.font = "32px serif";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText(`You got Caught!`, 400, 200);
     clearInterval(this.intervalId);
   }
 
@@ -183,8 +196,8 @@ class Game {
         } else {
           this.ctx.clearRect(0, 0, this.width, this.height);
           this.ctx.font = "32px serif";
-          this.ctx.fillStyle = "black";
-          this.ctx.fillText(`YOU WIN! Score: ${this.score}`, 400, 100);
+          this.ctx.fillStyle = "white";
+          this.ctx.fillText(`YOU WIN! Score: ${this.score}`, 400, 200);
         }
       }, 1000 / 60);
     }
