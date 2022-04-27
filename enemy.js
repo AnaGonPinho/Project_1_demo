@@ -1,7 +1,7 @@
 class Enemy {
   constructor(game, speed) {
     this.game = game;
-    this.x = Math.floor(Math.random() * 300 + 1000);
+    this.x = Math.floor(Math.random(5) * 300 + 1000);
     this.y = 350;
     this.width = 100;
     this.height = 100;

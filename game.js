@@ -17,6 +17,8 @@ class Game {
     this.life = 0;
     this.count = null;
     this.enemySpeed = 2;
+    this.trapSpeed = 2;
+    this.background = new Image();
   }
 
   start() {
@@ -34,10 +36,13 @@ class Game {
     //count--;
     if (count < 60 && count >= 40) {
       this.enemySpeed = 2;
+      this.trapSpeed = 2;
     } else if (count < 40 && count >= 20) {
       this.enemySpeed = 3;
+      this.trapSpeed = 3;
     } else {
       this.enemySpeed = 4;
+      this.trapSpeed = 4;
     }
 
     this.ctx.fillStyle = "black";
@@ -48,6 +53,7 @@ class Game {
   update() {
     this.frames++;
     this.ctx.clearRect(0, 0, this.width, this.height);
+    this.drawBackground();
     this.jerry.draw();
     this.drawTime();
     this.jerry.stopJumping();
@@ -60,6 +66,7 @@ class Game {
 
     this.createTrap();
     this.trap.forEach((trap) => {
+      trap.x -= trap.speed;
       trap.y++;
       trap.draw();
     });
@@ -68,17 +75,28 @@ class Game {
     this.enemies.forEach((enemy) => {
       enemy.x -= enemy.speed;
       enemy.draw();
+      if (this.life === 3) {
+        this.stop();
+      }
     });
 
     this.checkGameOver3();
     this.checkPoints();
     this.checkGameOver();
     this.drawScores();
-    if (this.life === 3) {
-      this.stop();
-    }
 
     this.drawWin();
+  }
+
+  drawBackground() {
+    this.background.src = "./docs/imgs/D-spabdXUAAJwht.jpg";
+    this.ctx.drawImage(
+      this.background,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 
   createEnemies() {
@@ -94,15 +112,15 @@ class Game {
   }
 
   createPoints() {
-    if (this.frames % 300 === 0) {
+    if (this.frames % 100 === 0) {
       this.points.push(new Cheese(this));
       console.log(this.points);
     }
   }
 
   createTrap() {
-    if (this.frames % 300 === 0) {
-      this.trap.push(new Trap(this));
+    if (this.frames % 100 === 0) {
+      this.trap.push(new Trap(this, this.trapSpeed));
     }
   }
 

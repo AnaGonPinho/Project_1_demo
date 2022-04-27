@@ -1,15 +1,16 @@
 class Trap {
-  constructor(game) {
+  constructor(game, speed) {
     this.game = game;
-    this.x = Math.floor(Math.random() * 100 + 500);
+    this.x = Math.floor(Math.random(5) * 450 + 500);
     this.y = 0;
     this.width = 50;
     this.height = 50;
     this.img = new Image();
+    this.speed = speed;
   }
 
   left() {
-    return this.x;
+    return this.x + this.width - 10;
   }
   right() {
     return this.x + this.width - 10;
@@ -24,7 +25,7 @@ class Trap {
   }
 
   draw() {
-    this.img.src = "./docs/imgs/armadilha.PNG";
+    this.img.src = "./docs/imgs/trap.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
