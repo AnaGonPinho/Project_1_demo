@@ -24,7 +24,7 @@ class Cheese {
   }
 
   draw() {
-    this.img.src = "./docs/assets/imgs/cheese.png";
+    this.img.src = "docs/assets/imgs/cheese.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
