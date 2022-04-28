@@ -182,7 +182,10 @@ class Game {
     this.ctx.font = "32px serif";
     this.ctx.fillStyle = "white";
     this.ctx.fillText(`You got Caught!`, 400, 200);
+    document.getElementById("restart").classList.toggle("hidden");
     clearInterval(this.intervalId);
+    const startMusic = new Audio("./docs/assets/sounds/intro.webm");
+    startMusic.play();
   }
 
   drawWin() {

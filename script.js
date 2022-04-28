@@ -4,12 +4,13 @@ let startButton = document.getElementById("start-button");
 console.log(startScreen);
 
 window.onload = () => {
-  const startMusic = new Audio("./docs/assets/sounds/intro.webm");
-  startMusic.play();
-
   document.getElementById("start-button").onclick = () => {
     startScreen.style.display = "none";
     startButton.style.display = "none"; // posso mudar de backgrounds por ex
+    startGame();
+  };
+
+  document.getElementById("restart").onclick = () => {
     startGame();
   };
 
