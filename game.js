@@ -120,7 +120,7 @@ class Game {
   }
 
   createTrap() {
-    if (this.frames % 200 === 0) {
+    if (this.frames % 150 === 0) {
       this.trap.push(new Trap(this, this.trapSpeed));
     }
   }
