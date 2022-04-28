@@ -1,48 +1,53 @@
 body {
-  background-color: black;
-  background-image: url("docs/assets/imgs/OTHERBACK.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 350px;
-  height: 350px;
-  background-position: right;
+  background: linear-gradient(to right, #0f2027, #203a43, #3f5d69);
+  display: flex;
+  flex-direction: column;
 }
 
-.toca {
-  border-radius: 50%;
-  position: right;
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-evenly;
 }
 
 #start-button {
-  background-image: url("docs/assets/imgs/pngtree-brown-realistic-start-button-png-image_2256288-removebg-preview.png");
-  background-size: contain;
-  height: 30px;
-  width: 80px;
-  background-repeat: no-repeat;
-  border-radius: 35%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  width: 100px;
+  height: 50px;
+  border-radius: 50%;
+  border-style: double;
+
+  background-image: url("docs/assets/imgs/button.png");
+  background-size: cover;
 }
 
 #start-screen {
   width: 1000px;
-  height: 450px;
-  background-color: #390000;
-  background-image: url("docs/assets/imgs/Tom-Jerry-1.png");
+  height: 550px;
+  background-image: url("docs/assets/imgs/backgroundd.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-evenly;
 }
 
-#toca {
-  border-radius: 20%;
+p {
+  color: whitesmoke;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+#other-section {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-left: 1000px;
-  padding-bottom: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-evenly;
 }
